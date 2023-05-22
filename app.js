@@ -110,7 +110,7 @@ const password = "Gabriel15072014!!!";
 // Send emails to each lead
 async function sendEmails() {
   for (const lead of leads) {
-    const { fromName, subject, delay } = config;
+    const { username, password, fromName, subject, delay } = config;
 
     // const message = `Dear ${lead},\n\nThis is a test email.`;
     try {

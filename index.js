@@ -24,7 +24,9 @@ async function sendEmail(
 
   // Create a new page
   const page = await browser.newPage();
-  await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36');
+  await page.setUserAgent(
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36"
+  );
   // Navigate to the email portal
   await page.goto("https://messagerie.ac-aix-marseille.fr/plog/public/login");
 
@@ -45,7 +47,7 @@ async function sendEmail(
 
   // Enter recipient, subject, and message
   //   await page.select("#_from", "66977");
-    await page.select("#_from", fromName);
+  await page.select("#_from", fromName);
   await page.$eval(
     'li.input input[type="text"]',
     (element, recipient) => {
@@ -105,14 +107,10 @@ const config = JSON.parse(fs.readFileSync("config.json", "utf8"));
 // Read email body from letter.txt
 const message = fs.readFileSync("letter.txt", "utf8");
 
-// Email credentials
-const username = "eguien1";
-const password = "Gabriel15072014!!!";
-
 // Send emails to each lead
 async function sendEmails() {
   for (const lead of leads) {
-    const { fromName, subject, delay } = config;
+    const { username, password, fromName, subject, delay } = config;
 
     // const message = `Dear ${lead},\n\nThis is a test email.`;
     try {
