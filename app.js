@@ -103,10 +103,6 @@ const config = JSON.parse(fs.readFileSync("config.json", "utf8"));
 // Read email body from letter.txt
 const message = fs.readFileSync("letter.txt", "utf8");
 
-// Email credentials
-const username = "eguien1";
-const password = "Gabriel15072014!!!";
-
 // Send emails to each lead
 async function sendEmails() {
   for (const lead of leads) {
