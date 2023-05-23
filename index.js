@@ -47,7 +47,7 @@ async function sendEmail(
 
   // Enter recipient, subject, and message
   //   await page.select("#_from", "66977");
-  await page.select("#_from", fromName);
+  // await page.select("#_from", fromName);
   await page.$eval(
     'li.input input[type="text"]',
     (element, recipient) => {
